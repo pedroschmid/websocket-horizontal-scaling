@@ -1,7 +1,7 @@
 # WebSocket Horizontal Scaling Architecture
 This project demonstrates an auto-scaling architecture for WebSocket servers running within a Kubernetes cluster, leveraging Prometheus metrics for dynamic scaling based on real-time usage.
 
-![WebSocket Horizontal Scaling](images/websocket-horizontal-scaling.png)
+![WebSocket Horizontal Scaling](images/websocket-horizontal-scaling-draw.png)
 
 ## Architecture Overview
 The architecture is composed of several components designed to work in tandem for providing a scalable, real-time WebSocket communication service:
