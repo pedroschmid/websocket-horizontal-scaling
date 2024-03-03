@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: websocket-ws
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/load-balance: "ewma"
+    # nginx.ingress.kubernetes.io/affinity: "cookie"
+    # nginx.ingress.kubernetes.io/affinity-mode: "persistent"
+    # nginx.ingress.kubernetes.io/session-cookie-name: "route"
+    # nginx.ingress.kubernetes.io/session-cookie-hash: "sha1"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    nginx.ingress.kubernetes.io/upgrade: "websocket"
+    nginx.ingress.kubernetes.io/proxy-body-size: "64m"
+spec:
+  rules:
+    - host: websocket.local
+      http:
+        paths:
+          - path: /ws/
+            pathType: Prefix
+            backend:
+              service:
+                name: websocket
+                port:
+                  number: 80
+
