@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: websocket-scaler
+  labels:
+    app: websocket-scaler
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: websocket-scaler
+  template:
+    metadata:
+      labels:
+        app: websocket-scaler
+    spec:
+      containers:
+        - name: websocket-scaler
+          image: pedroschmid2311/websocket-scaler:latest
+          imagePullPolicy: Always
